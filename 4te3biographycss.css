@@ -1,0 +1,195 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-bottom: 50px;
+  font: 16px/1.5 Lato, Arial, sans-serif;
+  background-image: linear-gradient(to bottom, #7ccfb2, #633d85);
+  color: rgba(0, 0, 0, .5);
+}
+
+/*Intro Section*/
+.intro {
+  padding: 250px 0;
+}
+
+.original {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+button {
+  padding: 10px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.conainer{
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: rgba(255, 255, 255, .9);
+}
+
+.arrow {
+  display: inline-block;
+  animation: arrow .7s ease-in alternate infinite;
+}
+
+/*Timeline SECTION*/
+.timeline ul {
+  padding: 50px 0;
+  overflow-x: hidden;
+}
+
+.timeline li {
+  position: relative;
+  width: 6px;
+  padding-top: 50px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .9);
+  list-style-type: none;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.timeline div {
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  background-image: linear-gradient(to bottom, #fe6976, #f36777);
+}
+
+.timeline li:nth-child(odd) div {
+  left: 45px;
+}
+.timeline li:nth-child(even) div {
+  left: -439px;
+}
+
+.timeline time {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, .7);
+}
+
+
+.timeline div::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  bottom: 7px;
+}
+
+.timeline li:nth-child(odd) div::after {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #f36776 transparent transparent;
+}
+
+.timeline li:nth-child(even) div::after {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #f36776;
+}
+
+/*ANIMATION EFFECTS*/
+@keyframes arrow {
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.timeline li::before {
+  transition: background ease-in .9s;
+}
+
+.timeline div {
+  transition: all ease-in-out .9s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timeline li:nth-child(odd) div {
+  transform: translateX(200px);
+}
+
+.timeline li:nth-child(even) div {
+  transform: translateX(-200px);
+}
+
+.timeline li.in-view::before {
+  background: #fe6976; 
+}
+
+.timeline li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*GOING RESPONSIVE*/
+@media screen and (max-width: 900px) {
+  .timeline div {
+    width: 250px;
+  }
+  .timeline li:nth-child(even) div {
+    left: -289px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .intro {
+    padding: 200px 0;
+  }
+  
+  .timeline ul li {
+    margin: 0 20px;
+  }
+  
+  .timeline li div {
+    width: calc(100vw - 70px);
+  }
+  .timeline li:nth-child(even) div {
+    left: 45px;
+  }
+  .timeline li:nth-child(even) div::after {
+    right: calc(100vw - 71px);
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #f45b69 transparent transparent;
+  }
+}
+
+
+
+
+
+
+
